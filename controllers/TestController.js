@@ -1,4 +1,3 @@
-
 let model = require("../models/vip.js");
 
 // ///////////////////////// J U S T E    U N    P E T I T    T E S T
@@ -13,7 +12,7 @@ module.exports.Test = 	function(request, response){
     response.nbVip = result; // result contient : [ RowDataPacket { NB: 37 } ]
 
     response.nbVip2 = result[0]; // result[0] contient  RowDataPacket { NB: 37 }
-    
+
     response.render('test', response); // appel la vue Handlebars qui va afficher le résultat
 } );
 }

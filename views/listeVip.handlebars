@@ -1,0 +1,12 @@
+{{> repertoireVipLettre}}
+
+{{#each listeVip}}
+
+<div class="vip">
+  <a href="/repertoire/vip/{{this.VIP_NUMERO}}">
+    <img src="/images/vip/{{this.PHOTO_ADRESS}}" alt="aïe">
+    <p>{{this.VIP_PRENOM}} {{this.VIP_NOM}}</p>
+  </a>
+</div>
+
+{{/each}}
