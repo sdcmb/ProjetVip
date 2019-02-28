@@ -1,0 +1,164 @@
+{{> listeVipPartial}}
+
+<!--_______faire une verif pour affichage de chaque élément_______________-->
+
+
+         <!---_______________général_______________-->
+    <img src="/images/vip/{{photo.0.PHOTO_ADRESSE}}" alt="aïe" class="imagePrincipale">
+
+    <div class="descPrinci">
+      <p><label>Nom :</label> {{bioVip.vipPrenom}} {{bioVip.vipNom}}</p>
+      <p><label>Date de naissance :</label> {{formatDate bioVip.vipNaissance 'dddd D MMMM YYYY' }}</p>
+      <p><label>Nationalité :</label> {{bioVip.vipNationalite}}</p>
+
+
+{{#if acteurVip}}                               <!---_______________acteur_______________-->
+  <p><label>Profession : </label>
+  {{#ifCond acteurVip.0.VIP_SEXE '==' "M"}}
+    Acteur
+  {{else}}
+    Actrice
+  {{/ifCond}}</p>
+  {{#if acteurVipFilm}}                       <!---_______________films_______________-->
+    <p><label>Principal(aux) film(s) : </label>
+    {{#each acteurVipFilm}}
+      {{this.FILM_TITRE}} ({{formatDate this.FILM_DATEREALISATION 'MMMM YYYY' }})
+      {{#ifCond this.VIP_NOM '!=' null }}
+       de <a class="tooltip" href="/repertoire/vip/{{this.realNum}}">{{this.VIP_PRENOM}} {{this.VIP_NOM}}</a>
+       {{/ifCond}}</p>
+    {{/each}}
+  {{/if}}
+{{/if}}
+</div>
+
+{{#if realisateurVip}}                          <!---_______________realisateur_______________-->
+  <p><label>Profession : </label>
+  {{#ifCond realisateurVip.0.VIP_SEXE '==' "M"}}
+    Réalisateur
+  {{else}}
+    Réalisatrice
+  {{/ifCond}}</p>
+  {{#each realisateurVip}}                                            <!---_______________films_______________-->
+    {{#ifCond this.FILM_TITRE '!=' null }}
+        <p><label>Principal(aux) film(s) : </label>
+        {{this.FILM_TITRE}} ({{formatDate this.FILM_DATEREALISATION 'MMMM YYYY' }})
+    {{/ifCond}}</p>
+  {{/each}}
+{{/if}}
+
+{{#if mannequinVip}}                            <!---_______________mannequin_______________-->
+  <p><label>Profession : </label>Mannequin</p>
+
+  {{#if mannequinVipDefile}}
+    <p><label>Principal(aux) défilé(s) : </label>
+
+    {{#each mannequinVipDefile}}                        <!---_______________defiles_______________-->
+      {{this.DEFILE_LIEU}} ({{formatDate this.DEFILE_DATE 'MMMM YYYY' }})
+
+      {{#ifCond this.VIP_NOM '!=' null }}
+       de <a href="/repertoire/vip/{{this.coutNum}}">{{this.VIP_PRENOM}} {{this.VIP_NOM}}</a>
+       {{/ifCond}}</p>
+
+    {{/each}}
+
+  {{/if}}
+{{/if}}
+
+{{#if couturierVip}}                          <!---_______________realisateur_______________-->
+  <p><label>Profession : </label>
+    {{#ifCond couturierVip.0.VIP_SEXE '==' "M"}}
+      Couturier
+    {{else}}
+      Couturière
+    {{/ifCond}}</p>
+  {{#each couturierVip}}                                            <!---_______________défilés_______________-->
+    {{#ifCond this.DEFILE_LIEU '!=' null }}
+        <p><label>Principal(aux) défilé(s) : </label>
+        {{this.DEFILE_LIEU}} ({{formatDate this.DEFILE_DATE 'MMMM YYYY' }})
+    {{/ifCond}}</p>
+  {{/each}}
+{{/if}}
+
+{{#if chanteurVip}}                            <!---_______________chanteur_______________-->
+  <p><label>Profession : </label>
+    {{#ifCond chanteurVip.0.VIP_SEXE '==' "M"}}
+      Chanteur
+    {{else}}
+      Chanteuse
+    {{/ifCond}}
+  ({{chanteurVip.0.CHANTEUR_SPECIALITE}})</p>
+  {{#ifCond chanteurVip.0.ALBUM_TITRE '!=' null}}
+    <p><label>Principal(aux) album(s) : </label>
+    {{#each chanteurVip}}                      <!---_______________albums_______________-->
+      {{this.ALBUM_TITRE}} ({{formatDate this.ALBUM_DATE 'MMMM YYYY' }}) {{this.MAISONDISQUE_NOM}}</p>
+    {{/each}}
+  {{/ifCond}}
+{{/if}}
+
+{{#if mariagesVip}}                             <!---_______________mariage_______________-->
+  <p><label>Mariages : </label>
+    {{#each mariagesVip}}
+       <a href="/repertoire/vip/{{this.VIP_VIP_NUMERO}}">{{this.VIP_PRENOM}} {{this.VIP_NOM}}</a> ( {{formatDate this.DATE_EVENEMENT 'MMMM YYYY' }}
+        {{#ifCond this.MARIAGE_FIN '!=' null}}
+          ---> {{formatDate this.MARIAGE_FIN 'MMMM YYYY' }}
+        {{/ifCond}}
+        )<label> Lieu : </label>{{this.MARIAGE_LIEU}}
+        {{#ifCond this.MARIAGE_MOTIFFIN '!=' null}}
+          <label> Raison fin mariage : </label>{{this.MARIAGE_MOTIFFIN}}
+        {{/ifCond}}
+      </p>
+    {{/each}}
+{{/if}}
+
+{{#if mariagesVipV2}}                           <!---_______________mariage_______________-->
+  <p><label>Mariages : </label>
+    {{#each mariagesVipV2}}
+       <a href="/repertoire/vip/{{this.VIP_NUMERO}}">{{this.VIP_PRENOM}} {{this.VIP_NOM}}</a> ( {{formatDate this.DATE_EVENEMENT 'MMMM YYYY' }}
+        {{#ifCond this.MARIAGE_FIN '!=' null}}
+          ---> {{formatDate this.MARIAGE_FIN 'MMMM YYYY' }}
+        {{/ifCond}}
+        )<label> Lieu : </label>{{this.MARIAGE_LIEU}}
+        {{#ifCond this.MARIAGE_MOTIFFIN '!=' null}}
+          <label> Raison fin mariage : </label>{{this.MARIAGE_MOTIFFIN}}
+        {{/ifCond}}
+      </p>
+    {{/each}}
+{{/if}}
+
+{{#if liaisonsVip}}                             <!---_______________liaison_______________-->
+  <p><label>Liaison(s) : </label>
+    {{#each liaisonsVip}}
+       <a href="/repertoire/vip/{{this.VIP_VIP_NUMERO}}">{{this.VIP_PRENOM}} {{this.VIP_NOM}}</a> ( {{formatDate this.DATE_EVENEMENT 'MMMM YYYY' }} )
+        {{#ifCond this.LIAISON_MOTIFFIN '!=' null}}
+          <label> Raison fin liaiosn : </label>{{this.LIAISON_MOTIFFIN}}
+        {{/ifCond}}
+      </p>
+    {{/each}}             <!--  //////////////FAIRE ATTENTION AU DOUBLON D AFFICHAGE (Melanie Laurent)\\\\\\\\\\\\\\  -->
+{{/if}}
+
+{{#if liaisonsVipV2}}
+  <p><label>Liaison(s) : </label>                            <!---_______________liaison_______________-->
+    {{#each liaisonsVipV2}}
+       <a href="/repertoire/vip/{{this.VIP_NUMERO}}">{{this.VIP_PRENOM}} {{this.VIP_NOM}}</a> ( {{formatDate this.DATE_EVENEMENT 'MMMM YYYY' }} )
+        {{#ifCond this.LIAISON_MOTIFFIN '!=' null}}
+          <label> Raison fin liaiosn : </label>{{this.LIAISON_MOTIFFIN}}
+        {{/ifCond}}
+      </p>
+    {{/each}}
+{{/if}}
+
+{{#if descVip}}                                 <!---_______________Qui suis-je ?_______________-->
+  <p><label>Qui suis-je ? :</label>
+  {{#each descVip}}
+    {{this.VIP_TEXTE}}</p>
+  {{/each}}
+{{/if}}
+
+{{#if photo}}                                    <!--__________________liste photos_______________-->
+  {{#each photo}}
+    {{#ifCond this.PHOTO_NUMERO '!=' 1}}
+    <a class="example-image-link" href="/images/vip/{{this.PHOTO_ADRESSE}}" data-lightbox="example-set" data-title="{{this.PHOTO_SUJET}} - {{this.PHOTO_COMMENTAIRE}}">
+      <img class="example-image imgBioListe" src="/images/vip/{{this.PHOTO_ADRESSE}}" alt="oups"/></a>
+    {{/ifCond}}
+  {{/each}}
+{{/if}}

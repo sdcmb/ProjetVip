@@ -1,0 +1,22 @@
+{{> listeVipNomPrenom}}
+
+<div class="contenuArticle">
+  <fieldset>
+    <legend>Article</legend>
+    {{#each article}}
+      <p class="nom">{{this.VIP_PRENOM}} {{this.VIP_NOM}}</p>
+      {{#ifCond this.ARTICLE_RESUME '!=' null}}
+        <p>{{this.ARTICLE_RESUME}}</p>
+        <p style="background-color:#d7dde5">[Ajouté le {{formatDate this.ARTICLE_DATE_INSERT  'D MMMM YYYY' }}]
+          <a href="/repertoire/vip/{{this.VIP_NUMERO}}" style="color:black;float:right; text-decoration:underline">voir sa fiche</a>
+        </p>
+      {{else}}
+        <p style="display:inline-block;">Ce vip ne possède aucun article. Allez jeter un coup d'oeil à sa fiche tout de même !</p>
+         <img src="/images/blink.gif" alt="oups" style="max-height:150px; display:inline-block; vertical-align:middle; margin-left:150px;">
+        <p style="margin-top:50px;background-color:#d7dde5"><a href="/repertoire/vip/{{this.VIP_NUMERO}}" style="color:black;text-decoration:underline">voir sa fiche</a>
+        </p>
+      {{/ifCond}}
+    {{/each}}
+    <p></p>
+  </fieldset>
+</div>

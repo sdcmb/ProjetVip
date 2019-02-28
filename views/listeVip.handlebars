@@ -1,10 +1,10 @@
-{{> repertoireVipLettre}}
+{{> listeVipPartial}}
 
 {{#each listeVip}}
 
 <div class="vip">
-  <a href="/repertoire/vip/{{this.VIP_NUMERO}}">
-    <img src="/images/vip/{{this.PHOTO_ADRESS}}" alt="aïe">
+  <a href="/repertoire/vip/{{this.numeroVip}}">
+      <img src="/images/vip/{{this.PHOTO_ADRESSE}}" alt="aïe" class="indexImage">
     <p>{{this.VIP_PRENOM}} {{this.VIP_NOM}}</p>
   </a>
 </div>

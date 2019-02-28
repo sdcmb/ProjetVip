@@ -7,7 +7,6 @@ body {
     font-size:0.8em;
     margin: 0;
     padding: 0;
-    text-align: center;
     color: #000000;
 }
 .monBody #container {
@@ -21,7 +20,12 @@ body {
     color:#fff;
 }
 
-.menu_haut {background-color:#000;color:#fff;margin-top:-13px;width:100%;}
+.menu_haut {
+  background-color:#000;
+  color:#fff;
+  margin-top:-13px;
+  width:100%;
+}
 .menu_haut ul {
 	width:100%;
 	text-align:center;
@@ -52,6 +56,7 @@ body {
 .monBody #contenu {
     padding:20px;
     overflow: auto;
+    margin-left: 50px;
 }
 .monBody #footer {
     padding: 0 10px;
@@ -60,7 +65,8 @@ body {
     height:150px;
     background:url(/image/footer.jpg) no-repeat;
 }
-.baniere{float:left;
+.baniere{
+  float:left;
   margin-top:20px;
   margin-left:5px;
   border:none;}
@@ -73,11 +79,158 @@ body {
     max-width: 20%;
 }
 
-a  {
+.indexLettres{
+  text-align: center;
+  display: block;
+  margin-bottom: 50px;
+}
+
+.vip{
+  text-align: center;
+  display: inline-block;
+  margin-right: 50px;
+}
+
+.indexImage{
+  height: 150px;
+  width: auto;
+}
+
+a{
     text-decoration:none;
     color:#0072ff;
 }
 
 .traitVertical {
   border-left: 1px white solid;
+}
+
+
+.imagePrincipale{
+  width: 200px;
+  height: auto;
+  display: inline-block;
+  text-align: left;
+  margin-right: 30px;
+  vertical-align: top;
+}
+
+.descPrinci{
+  display: inline-block;
+  text-align: left;
+}
+
+label{
+  font-weight: bold;
+}
+
+.imgBioListe{
+  max-height: 150px;
+  margin-right: 50px;
+  margin-top: 50px;
+}
+
+.tooltip
+{
+  text-decoration:none;
+  position:relative;
+}
+
+
+.tooltip span
+{
+  display:none;
+
+  -moz-border-radius:6px;
+  -webkit-border-radius:6px;
+  border-radius:6px;
+  color:black;
+  background:white;
+}
+
+
+.tooltip span img
+{
+  float:left;
+  margin:0px 8px 8px 0;
+}
+
+.tooltip img
+{
+height: 100px;
+}
+.tooltip span
+{
+font-weight: normal;
+font-size: 11px;
+}
+
+
+.tooltip:hover span
+{
+  display:block;
+  position:absolute;
+  top:0;
+  left:0;
+  z-index:1000;
+  width:650px;
+  min-height:128px;
+  border:1px solid black;
+  margin-top:12px;
+  margin-left:32px;
+  overflow:hidden;
+  padding:8px;
+}
+
+.tableNomVip{
+  width: 10%;
+  float: right;
+  margin-right: 150px;
+}
+
+.tableNomVip table{
+  border-collapse: collapse;
+  border:solid 1px;
+  text-align: center;
+}
+
+.tableNomVip th{
+  border:solid 1px;
+  background-color: black;
+  padding: 10px 75px 0px 75px;
+}
+
+.tableNomVip a{
+  color:black;
+  text-decoration:underline;
+  font-weight: bold;
+  display:block;
+}
+
+.contenuArticle{
+  width: 70%;
+}
+
+.nom{
+  text-decoration: underline;
+}
+
+/* .containerglob{
+  border: solid 1px;
+  width: 25%;
+  float: right;
+}
+
+.listePhotos{
+  text-align: center;
+}*/
+
+.album{
+  width: 80px;
+  height: 100px;;
+  margin-right: 15px;
+}
+
+.pagination li:hover{
+    cursor: pointer;
 }
